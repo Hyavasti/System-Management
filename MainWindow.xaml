@@ -1,0 +1,106 @@
+<Window x:Class="ComputerShopManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:ComputerShopManagement.Views"
+        Title="Computer Shop Management System" 
+        Height="800" 
+        Width="1400"
+        WindowStyle="None"
+        Background="#FF2C2F33"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <Border Grid.Column="0" Background="#FF23272A" BorderThickness="0,0,1,0" BorderBrush="#FF1A1D21">
+            <StackPanel>
+                <!-- Logo/Header -->
+                <StackPanel Orientation="Horizontal" Margin="15,20" VerticalAlignment="Center">
+                    <Border Width="32" Height="32" Background="#FF4A9EFF" CornerRadius="4" Margin="0,0,10,0">
+                        <TextBlock Text="&#xE7F4;" FontFamily="Segoe MDL2 Assets" FontSize="18" 
+                                   Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel>
+                        <TextBlock Text="Computer Shop" FontSize="14" FontWeight="SemiBold" Foreground="White"/>
+                        <TextBlock Text="Management System" FontSize="10" Foreground="#FF8E9297"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Navigation Menu -->
+                <StackPanel Margin="0,30,0,0">
+                    <Button x:Name="DashboardBtn" Style="{StaticResource SidebarButtonStyle}" IsEnabled="False">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE80F;" FontFamily="Segoe MDL2 Assets" FontSize="16" Margin="0,0,10,0"/>
+                            <TextBlock Text="Dashboard" FontSize="13"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button Style="{StaticResource SidebarButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE7F8;" FontFamily="Segoe MDL2 Assets" FontSize="16" Margin="0,0,10,0"/>
+                            <TextBlock Text="PCs" FontSize="13"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button Style="{StaticResource SidebarButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE719;" FontFamily="Segoe MDL2 Assets" FontSize="16" Margin="0,0,10,0"/>
+                            <TextBlock Text="Store" FontSize="13"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button Style="{StaticResource SidebarButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE716;" FontFamily="Segoe MDL2 Assets" FontSize="16" Margin="0,0,10,0"/>
+                            <TextBlock Text="Users" FontSize="13"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button Style="{StaticResource SidebarButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE713;" FontFamily="Segoe MDL2 Assets" FontSize="16" Margin="0,0,10,0"/>
+                            <TextBlock Text="Settings" FontSize="13"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Main Content Area -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Top Bar -->
+            <Border Grid.Row="0" Background="#FF23272A" BorderThickness="0,0,0,1" BorderBrush="#FF1A1D21">
+                <Grid Margin="30,0">
+                    <TextBlock Text="Admin Dashboard" FontSize="20" FontWeight="SemiBold" 
+                               Foreground="White" VerticalAlignment="Center"/>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <!-- Notification Bell -->
+                        <Button Style="{StaticResource TopBarButtonStyle}" Margin="0,0,15,0">
+                            <TextBlock Text="&#xE7E7;" FontFamily="Segoe MDL2 Assets" FontSize="18"/>
+                        </Button>
+                        
+                        <!-- User Avatar -->
+                        <Border Width="40" Height="40" CornerRadius="20" Background="#FF5865F2">
+                            <TextBlock Text="A" FontSize="16" FontWeight="Bold" 
+                                       Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Dashboard Content -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <views:DashboardView/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>
